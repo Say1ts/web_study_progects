@@ -79,9 +79,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Томский политехничкский университет <?= date('Y') ?></p>
+        <p class="pull-right"> Выполнил студент группы 8ВМ03 Цыденов Саян Баирович. <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 
