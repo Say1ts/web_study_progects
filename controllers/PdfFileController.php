@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PdfFileController implements the CRUD actions for PdfFile model.
@@ -66,7 +67,11 @@ class PdfFileController extends Controller
     {
         $model = new PdfFile();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->Post());
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs("../files/{$model->file->baseName}.{$model->file->extension}");
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
