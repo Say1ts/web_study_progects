@@ -1,0 +1,22 @@
+{% extends "header.html" %}
+{% block title %} Список документов {% endblock %}
+{% block H1 %} Список документов {% endblock %}
+{% block content %}
+<table border="1">
+   <caption>Список загруженных документов</caption>
+   <tr>
+    <th>Имя файла</th>
+    <th>Описание</th>
+    <th>Дата создания записи</th>
+    <th>Ссылка на скачивание</th>
+   </tr>
+    {% for item in pdfs %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.content }}</td>
+        <td>{{ item.created_at|date:"Y-m-d h:i" }}</td>
+        <td><a href="/media/{{ item.file }}">Скачать</a></td>
+    </tr>
+{% endfor %}
+     </table>
+{% endblock %}

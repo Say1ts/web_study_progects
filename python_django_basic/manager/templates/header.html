@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}  {% endblock %}</title>
+</head>
+<body>
+    <h1>{% block H1 %} О Сайте {% endblock %}</h1>
+    <div>
+    <a href="/">Home</a>
+    <a href="/about_developer/">Об авторе</a>
+    <a href="/about_site/">О сайте</a>
+    <a href="/admin/">Войти</a>
+    <hr/>
+    </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
